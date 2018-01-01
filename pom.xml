@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.rest.automation.admin</groupId>
+	<artifactId>RestAutomationAdmin</artifactId>
+	<version>1.0.0-MASTER</version>
+	<packaging>pom</packaging>
+	<name>RestAutomationAdmin</name>
+	<description>Restaurant order automation admin panels packedn</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.8.RELEASE</version>
+	</parent>
+
+
+	<modules>
+		<module>RestAutomationAdmin-da-parent</module>
+		<module>RestAutomationAdmin-commons</module>
+		<module>RestAutomationAdmin-resources</module>
+		<module>RestAutomationAdmin-dto</module>
+		<module>RestAutomationAdmin-services</module>
+		<module>RestAutomationAdmin-rest-services</module>
+	</modules>
+	
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
+
+        <commons-cli.version>1.2</commons-cli.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <apache.commons.version>1.0</apache.commons.version>
+        <commons-httpclient.version>3.1</commons-httpclient.version>
+        <commons-io.version>2.4</commons-io.version>
+        <commons-logging.version>1.1.1</commons-logging.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+	</properties>
+</project>

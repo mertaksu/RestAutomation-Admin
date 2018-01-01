@@ -1,0 +1,80 @@
+<included>
+
+    <appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>${restautomation.server.home}/logs/restautomation_rest-service_error.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${restautomation.server.home}/logs/restautomation_rest-service_error_%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+
+            <!-- keep 14 days' worth of history -->
+            <MaxHistory>14</MaxHistory>
+
+            <TimeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>250MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date [%thread] %level %msg%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>${restautomation.server.home}/logs/restautomation_rest-service.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${restautomation.server.home}/logs/restautomation_rest-service_%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+
+            <!-- keep 14 days' worth of history -->
+            <MaxHistory>14</MaxHistory>
+
+            <TimeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>250MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%date [%thread] %level %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="file"/>
+    </root>
+
+    <root level="ERROR">
+        <appender-ref ref="file_error"/>
+    </root>
+
+    <logger name="com.rest.automation" level="DEBUG"/>
+
+    <logger name="org.quartz" level="INFO"/>
+
+    <logger name="org.hibernate.orm.deprecation" level="ERROR"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.mongodb" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.hibernatespatial" level="INFO"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="javax" level="INFO"/>
+
+</included>
+

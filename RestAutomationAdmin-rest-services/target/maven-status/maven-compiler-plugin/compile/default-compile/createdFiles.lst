@@ -1,0 +1,3 @@
+com\rest\automation\admin\rest\servlet\ServletInitializer.class
+com\rest\automation\admin\rest\configuration\RestAutomationSchemaConfiguration.class
+com\rest\automation\admin\rest\spring\RestAutomationAdminApplication.class

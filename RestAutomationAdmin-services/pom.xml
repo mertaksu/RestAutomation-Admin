@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.rest.automation.admin</groupId>
+    <artifactId>RestAutomationAdmin</artifactId>
+    <version>1.0.0-MASTER</version>
+  </parent>
+  <artifactId>RestAutomationAdmin-services</artifactId>
+      <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+      <dependencies>
+      	<dependency>
+      		<groupId>com.rest.automation.admin</groupId>
+      		<artifactId>RestAutomationAdmin-commons</artifactId>
+      		<version>1.0.0-MASTER</version>
+      	</dependency>
+      	<dependency>
+      		<groupId>com.rest.automation.admin.da</groupId>
+      		<artifactId>RestAutomationAdmin-da-api</artifactId>
+      		<version>1.0.0-MASTER</version>
+      	</dependency>
+      </dependencies>
+</project>

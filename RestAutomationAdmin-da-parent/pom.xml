@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.rest.automation.admin</groupId>
+    <artifactId>RestAutomationAdmin</artifactId>
+    <version>1.0.0-MASTER</version>
+  </parent>
+  <groupId>com.rest.automation.admin.da</groupId>
+  <artifactId>RestAutomationAdmin-da-parent</artifactId>
+  <packaging>pom</packaging>
+  <name>RestAutomationAdmin-da-parent</name>
+  <description>RestAutomationAdmin's data access layers parent project </description>
+  <modules>
+  	<module>RestAutomationAdmin-da-api</module>
+  	<module>RestAutomationAdmin-da-domain</module>
+  	<module>RestAutomationAdmin-da-repository</module>
+  </modules>
+</project>
