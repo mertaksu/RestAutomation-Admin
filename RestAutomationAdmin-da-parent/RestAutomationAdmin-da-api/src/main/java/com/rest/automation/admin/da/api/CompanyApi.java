@@ -1,9 +1,10 @@
 package com.rest.automation.admin.da.api;
 
 import com.rest.automation.admin.dto.CompanyDto;
+import com.rest.automation.admin.dto.response.CompanyResponseDto;
 
 public interface CompanyApi {
 
-	public Boolean save(CompanyDto companyDto);
+	public CompanyResponseDto save(CompanyDto companyDto);
 	
 }

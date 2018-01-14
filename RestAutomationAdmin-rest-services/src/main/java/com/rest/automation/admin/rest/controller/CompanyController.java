@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.automation.admin.dto.CompanyDto;
+import com.rest.automation.admin.dto.response.CompanyResponseDto;
 import com.rest.automation.admin.services.CompanyService;
 
 @RestController
@@ -17,7 +18,7 @@ public class CompanyController {
 	private CompanyService companyService;
 	
 	@RequestMapping(value="/createCompany",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE,consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Boolean createCompany(@RequestBody CompanyDto companyDto) {
+	public CompanyResponseDto createCompany(@RequestBody CompanyDto companyDto) {
 		return companyService.createCompany(companyDto);
 	}
 }

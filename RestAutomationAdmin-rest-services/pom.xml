@@ -7,22 +7,22 @@
 		<version>1.0.0-MASTER</version>
 	</parent>
 	<artifactId>RestAutomationAdmin-rest-services</artifactId>
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>RestAutomationAdmin</warName>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+						<warName>RestAutomationAdmin</warName>
+						<failOnMissingWebXml>false</failOnMissingWebXml>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 	<dependencies>
 		<dependency>
@@ -30,7 +30,7 @@
 			<artifactId>RestAutomationAdmin-services</artifactId>
 			<version>1.0.0-MASTER</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.rest.automation.admin</groupId>
 			<artifactId>RestAutomationAdmin-commons</artifactId>
@@ -67,6 +67,13 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 </project>

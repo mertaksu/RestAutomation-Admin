@@ -2,6 +2,8 @@ package com.rest.automation.admin.dto;
 
 public class CompanyDto {
 
+	private Long companyId;
+	
 	private String companyName;
 	
 	private String address;
@@ -20,6 +22,14 @@ public class CompanyDto {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
 	}
 	
 }

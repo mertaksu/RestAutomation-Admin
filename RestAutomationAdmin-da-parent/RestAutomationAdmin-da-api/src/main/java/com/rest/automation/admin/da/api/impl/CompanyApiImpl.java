@@ -10,6 +10,8 @@ import com.rest.automation.admin.da.domain.CompanyDomain;
 import com.rest.automation.admin.da.mapper.impl.CompanyMapper;
 import com.rest.automation.admin.da.repository.CompanyRepository;
 import com.rest.automation.admin.dto.CompanyDto;
+import com.rest.automation.admin.dto.response.CompanyResponseDto;
+import com.rest.automation.commons.*;
 
 @Component
 public class CompanyApiImpl implements CompanyApi {
@@ -22,21 +24,25 @@ public class CompanyApiImpl implements CompanyApi {
 	@Autowired
 	private CompanyMapper companyMapper;
 	
-	public Boolean save(CompanyDto companyDto) {
+	public CompanyResponseDto save(CompanyDto companyDto) {
+		CompanyResponseDto response = null;
 		try {
+			response = new CompanyResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc);
 			CompanyDomain companyDomain = companyMapper.dtoToDomain(companyDto);
 			companyDomain = companyRepository.save(companyDomain);
 			if(companyDomain!=null) {
 				LOGGER.debug("Company saved with companyId : {}",companyDomain.getCompanyId());
-				return true;	
+				return response;	
 			}
 			else {
 				LOGGER.warn("Company could not saved!");
-				return true;	
+				response = new CompanyResponseDto(ResponseCodes.failCode, ResponseCodes.failDesc);
+				return response;	
 			}
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while company saving ...",e );
-			return false;
+			response = new CompanyResponseDto(ResponseCodes.exceptionCode, e.getMessage());
+			return response;
 		}
 	}
 }

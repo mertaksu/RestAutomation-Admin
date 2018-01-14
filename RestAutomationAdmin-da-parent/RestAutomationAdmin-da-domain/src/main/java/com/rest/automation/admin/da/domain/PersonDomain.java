@@ -19,7 +19,7 @@ public class PersonDomain {
 	@Column(name="USER_ID")
 	private Long userId;
 	
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="companyId")
 	private CompanyDomain companyId;
 	
