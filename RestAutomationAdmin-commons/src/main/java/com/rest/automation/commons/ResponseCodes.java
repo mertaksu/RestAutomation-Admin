@@ -9,4 +9,7 @@ public class ResponseCodes {
 	public static final String failDesc = "FAIL";
 	
 	public static final int exceptionCode = 500;
+	
+	public static final int unauthorizeCode = 401;
+	public static final String unauthorizeDesc = "Username / Password is not correct!";
 }

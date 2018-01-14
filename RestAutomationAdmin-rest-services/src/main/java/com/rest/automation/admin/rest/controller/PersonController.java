@@ -23,7 +23,6 @@ public class PersonController {
 	
 	@RequestMapping(value="/auth/login",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE, consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public PersonResponseDto login(String username,String password) {
-		System.out.println(username+"-"+password);
-		return new PersonResponseDto(0, "");
+		return personService.login(username, password);
 	}
 }
