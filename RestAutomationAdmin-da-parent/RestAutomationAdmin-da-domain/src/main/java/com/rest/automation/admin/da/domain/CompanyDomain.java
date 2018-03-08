@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,10 +26,11 @@ public class CompanyDomain {
 	@Column(name="ADDRESS")
 	private String address;
 	
-    @OneToMany(fetch=FetchType.LAZY)
-    @JoinColumn(name="userId")
-	private List<PersonDomain> personList;
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="company")
+    private List<PersonDomain> personList;
 
+    @OneToMany(fetch=FetchType.LAZY,mappedBy="company")
+    private List<TableDomain> tableList;
 	
 	public String getAddress() {
 		return address;

@@ -21,7 +21,7 @@ public class PersonDomain {
 	
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="companyId")
-	private CompanyDomain companyId;
+	private CompanyDomain company;
 	
     @Column(name="STATUS")
 	private Boolean status;
@@ -44,14 +44,6 @@ public class PersonDomain {
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
-	}
-
-	public CompanyDomain getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(CompanyDomain companyId) {
-		this.companyId = companyId;
 	}
 
 	public Boolean getStatus() {
@@ -92,6 +84,14 @@ public class PersonDomain {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public CompanyDomain getCompany() {
+		return company;
+	}
+
+	public void setCompany(CompanyDomain company) {
+		this.company = company;
 	}
 
 }
