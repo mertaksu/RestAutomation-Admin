@@ -10,13 +10,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
+@Getter
+@Setter
 @Entity
 @Table(name="ORDERS")
 @DynamicUpdate
@@ -43,60 +46,4 @@ public class OrderDomain {
 	@JoinColumn(name="tableId")
 	private TableDomain table;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="customerId")
-	private CustomerDomain customer;
-	
-	@ManyToMany(fetch=FetchType.LAZY,mappedBy="order")
-	private List<FoodDomain> foods;
-	
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public TableDomain getTable() {
-		return table;
-	}
-
-	public void setTable(TableDomain table) {
-		this.table = table;
-	}
-
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Double getTotalBill() {
-		return totalBill;
-	}
-
-	public void setTotalBill(Double totalBill) {
-		this.totalBill = totalBill;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
-	
 }

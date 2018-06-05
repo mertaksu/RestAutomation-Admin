@@ -36,4 +36,27 @@
         <commons-logging.version>1.1.1</commons-logging.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
 	</properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20.1</version>
+                <configuration>
+                    <argLine>-Drestautomation.server.home=C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-resources\src\main\resources\</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

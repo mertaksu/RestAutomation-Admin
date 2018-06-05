@@ -17,13 +17,16 @@ import com.rest.automation.commons.ResponseCodes;
 public class PersonApiImpl implements PersonApi {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersonApiImpl.class);
-	
-	@Autowired
-	PersonRepository personRepository;
-	
-	@Autowired
-	PersonMapper personMapper;
-	
+
+	private PersonRepository personRepository;
+
+	private PersonMapper personMapper;
+
+	public PersonApiImpl(PersonRepository personRepository,PersonMapper personMapper) {
+	    this.personRepository = personRepository;
+	    this.personMapper = personMapper;
+    }
+
 	public PersonResponseDto save(PersonDto personDto) {
 		PersonResponseDto response = null;
 		try {

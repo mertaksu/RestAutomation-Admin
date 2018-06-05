@@ -14,9 +14,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @ComponentScan({"com.rest.automation.admin.rest.authentication"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
-	@Autowired
 	TokenAuthenticationProvider provider;
-	
+
+	public SecurityConfiguration(TokenAuthenticationProvider provider) {
+	    this.provider = provider;
+    }
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		   http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST,"/auth/login")

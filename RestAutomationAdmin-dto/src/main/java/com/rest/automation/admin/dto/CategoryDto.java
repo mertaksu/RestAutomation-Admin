@@ -5,22 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonDto {
+public class CategoryDto {
 	
-	private CompanyDto company;
+	private Long categoryId;
 	
-	private Boolean status;
+	private String categoryName;
 	
-	private String fullName;
+	private byte[] image;
 	
-	private String role;
-	
-    private String username;
-	
-    private String password;
+	private boolean status;
 
 }

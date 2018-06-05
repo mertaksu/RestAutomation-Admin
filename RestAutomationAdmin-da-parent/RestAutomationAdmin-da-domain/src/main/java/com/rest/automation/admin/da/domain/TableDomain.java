@@ -1,5 +1,8 @@
 package com.rest.automation.admin.da.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Entity
 @Table(name="TABLES")
 public class TableDomain {
@@ -28,29 +33,4 @@ public class TableDomain {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="companyId")
 	private CompanyDomain company;
-
-	public Integer getTableId() {
-		return tableId;
-	}
-
-	public void setTableId(Integer tableId) {
-		this.tableId = tableId;
-	}
-
-	public String getTableState() {
-		return tableState;
-	}
-
-	public void setTableState(String tableState) {
-		this.tableState = tableState;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-	
 }

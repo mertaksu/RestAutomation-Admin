@@ -17,12 +17,15 @@ import com.rest.automation.commons.*;
 public class CompanyApiImpl implements CompanyApi {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CompanyApiImpl.class);
-	
-	@Autowired
-	private CompanyRepository companyRepository;
-	
-	@Autowired
-	private CompanyMapper companyMapper;
+
+    private CompanyRepository companyRepository;
+
+    private CompanyMapper companyMapper;
+
+    public CompanyApiImpl(CompanyRepository companyRepository,CompanyMapper companyMapper) {
+	    this.companyRepository = companyRepository;
+	    this.companyMapper = companyMapper;
+    }
 	
 	public CompanyResponseDto save(CompanyDto companyDto) {
 		CompanyResponseDto response = null;
@@ -41,7 +44,7 @@ public class CompanyApiImpl implements CompanyApi {
 			}
 		} catch (Exception e) {
 			LOGGER.error("Exception occured while company saving ...",e );
-			response = new CompanyResponseDto(ResponseCodes.exceptionCode, e.getMessage());
+			response = new CompanyResponseDto(ResponseCodes.exceptionCode, ResponseCodes.exceptionDesc);
 			return response;
 		}
 	}

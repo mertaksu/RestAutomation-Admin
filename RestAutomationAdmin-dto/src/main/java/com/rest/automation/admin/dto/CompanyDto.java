@@ -1,5 +1,14 @@
 package com.rest.automation.admin.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CompanyDto {
 
 	private Long companyId;
@@ -7,29 +16,5 @@ public class CompanyDto {
 	private String companyName;
 	
 	private String address;
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public Long getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
 	
 }

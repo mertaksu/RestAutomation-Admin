@@ -1,5 +1,9 @@
 package com.rest.automation.admin.da.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,8 +14,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Entity
 @Table(name="PERSON")
+@DynamicUpdate
 public class PersonDomain {
 	
 	@Id
@@ -37,61 +44,5 @@ public class PersonDomain {
 	
     @Column(name="PASSWORD")
 	private String password;
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
-
-	public Boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-
-	public String getFullName() {
-		return fullName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public CompanyDomain getCompany() {
-		return company;
-	}
-
-	public void setCompany(CompanyDomain company) {
-		this.company = company;
-	}
 
 }

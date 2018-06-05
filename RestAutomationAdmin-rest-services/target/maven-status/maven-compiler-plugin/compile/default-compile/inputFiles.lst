@@ -1,3 +1,7 @@
 C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\spring\RestAutomationAdminApplication.java
+C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\authentication\TokenAuthenticationProvider.java
+C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\authentication\SecurityConfiguration.java
+C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\controller\CompanyController.java
 C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\configuration\RestAutomationSchemaConfiguration.java
 C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\servlet\ServletInitializer.java
+C:\Users\mert.aksu\Documents\OrderSystem\RestAutomationAdmin\RestAutomationAdmin-rest-services\src\main\java\com\rest\automation\admin\rest\controller\PersonController.java

@@ -1,5 +1,8 @@
 package com.rest.automation.admin.da.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Entity
 @Table(name="RESTAURANT_COMPANY")
 public class CompanyDomain {
@@ -31,37 +36,4 @@ public class CompanyDomain {
 
     @OneToMany(fetch=FetchType.LAZY,mappedBy="company")
     private List<TableDomain> tableList;
-	
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCompanyName() {
-		return companyName;
-	}
-
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
-
-	public Long getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(Long companyId) {
-		this.companyId = companyId;
-	}
-
-	public List<PersonDomain> getPersonList() {
-		return personList;
-	}
-
-	public void setPersonList(List<PersonDomain> personList) {
-		this.personList = personList;
-	}
-	
 }

@@ -1,5 +1,8 @@
 package com.rest.automation.admin.da.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +15,8 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Entity
 @Table(name="CATEGORY")
 public class CategoryDomain {
@@ -30,39 +35,5 @@ public class CategoryDomain {
 	
 	@Column(name="STATUS")
 	private boolean status;
-	
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="category")
-	private List<FoodDomain> foodList;
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getCategoryName() {
-		return categoryName;
-	}
-
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-
-	public byte[] getImage() {
-		return image;
-	}
-
-	public void setImage(byte[] image) {
-		this.image = image;
-	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
 }

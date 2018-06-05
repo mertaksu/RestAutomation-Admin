@@ -2,7 +2,7 @@ package com.rest.automation.admin.da.mapper;
 
 public interface DomainDtoMapperInterface<Domain,Dto> {
 
-	public Domain dtoToDomain(Dto dto);
+    Domain dtoToDomain(Dto dto);
 	
-	public Dto domainToDto(Domain domain);
+    Dto domainToDto(Domain domain);
 }
