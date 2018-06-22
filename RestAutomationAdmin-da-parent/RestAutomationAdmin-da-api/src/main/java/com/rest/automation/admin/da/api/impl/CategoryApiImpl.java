@@ -8,6 +8,9 @@ import com.rest.automation.admin.dto.CategoryDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Component
 public class CategoryApiImpl implements CategoryApi{
@@ -55,6 +58,30 @@ public class CategoryApiImpl implements CategoryApi{
 
     @Override
     public void delete(Long categoryId) {
+        try {
+            categoryRepository.delete(categoryId);
+        } catch (Exception e) {
+            log.error("Exception occured while deleting category ",e);
+            return;
+        }
+    }
 
+    @Override
+    public List<CategoryDto> list() {
+
+        List<CategoryDto> categoryDtoList = new ArrayList<>();
+        try {
+            List<CategoryDomain> categoryDomainList = categoryRepository.findAll();
+            if(categoryDomainList!=null) {
+                for (CategoryDomain categoryDomain: categoryDomainList) {
+                    CategoryDto categoryDto = mapper.domainToDto(categoryDomain);
+                    categoryDtoList.add(categoryDto);
+                }
+            }
+            return categoryDtoList;
+        } catch (Exception e) {
+            log.error("Exception occured while listing all categories");
+            return null;
+        }
     }
 }

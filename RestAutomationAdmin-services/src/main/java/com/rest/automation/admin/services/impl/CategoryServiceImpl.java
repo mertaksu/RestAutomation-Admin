@@ -6,6 +6,8 @@ import com.rest.automation.admin.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class CategoryServiceImpl implements CategoryService {
 
@@ -25,5 +27,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long categoryId) {
         categoryApi.delete(categoryId);
+    }
+
+    @Override
+    public List<CategoryDto> categoryList() {
+        return categoryApi.list();
     }
 }

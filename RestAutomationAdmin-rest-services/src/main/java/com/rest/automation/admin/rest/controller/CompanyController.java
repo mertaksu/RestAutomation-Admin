@@ -17,7 +17,7 @@ public class CompanyController {
 	@Autowired
 	private CompanyService companyService;
 	
-	@RequestMapping(value="/createCompany",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE,consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/company",method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_UTF8_VALUE,consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public CompanyResponseDto createCompany(@RequestBody CompanyDto companyDto) {
 		return companyService.createCompany(companyDto);
 	}

@@ -13,8 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class CategoryDto {
 	
-	private Long categoryId;
-	
 	private String categoryName;
 	
 	private byte[] image;

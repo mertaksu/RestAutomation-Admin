@@ -6,40 +6,64 @@ import com.rest.automation.admin.services.CategoryService;
 import com.rest.automation.commons.ResponseCodes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/category")
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(value = "/",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    private CategoryResponseDto createNewCategory(CategoryDto newCategory) {
-        CategoryDto categoryDto = categoryService.createNewCategory(newCategory);
-        if(categoryDto==null) {
+    @RequestMapping(value = "/category",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    private CategoryResponseDto createNewCategory(@RequestBody CategoryDto newCategory) {
+        try {
+            CategoryDto categoryDto = categoryService.createNewCategory(newCategory);
+            if(categoryDto==null) {
+                return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc) ;
+            } else {
+                return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc,categoryDto);
+            }
+        } catch (Exception e) {
             return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc) ;
-        } else {
-            return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc,categoryDto);
         }
     }
 
-    @RequestMapping(value = "/",method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    private CategoryResponseDto updateExistingCategory(CategoryDto newCategory) {
-        CategoryDto categoryDto = categoryService.updateCategory(newCategory);
-        if(categoryDto==null) {
-            return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc) ;
-        } else {
-            return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc,categoryDto);
+    @RequestMapping(value = "/category",method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    private CategoryResponseDto updateExistingCategory(@RequestBody CategoryDto newCategory) {
+        try {
+            CategoryDto categoryDto = categoryService.updateCategory(newCategory);
+            if(categoryDto==null) {
+                return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc);
+            } else {
+                return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc,categoryDto);
+            }
+        } catch (Exception e) {
+            return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc);
         }
 
     }
 
-    @RequestMapping(value = "/{categoryId}",method = RequestMethod.DELETE,consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/category/{categoryId}",method = RequestMethod.DELETE)
     private CategoryResponseDto deleteExistingCategory(@PathVariable("categoryId") Long categoryId) {
-        categoryService.deleteCategory(categoryId);
+        try {
+            categoryService.deleteCategory(categoryId);
+        } catch (Exception e) {
+            return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc) ;
+        }
+        return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc);
+    }
+
+    @RequestMapping(value = "/category",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    private CategoryResponseDto listAllCategories() {
+        List<CategoryDto> categoryDtoList = null;
+        try {
+            categoryDtoList = categoryService.categoryList();
+        } catch (Exception e) {
+            return new CategoryResponseDto(ResponseCodes.failCode,ResponseCodes.failDesc) ;
+        }
+        return new CategoryResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc,categoryDtoList);
     }
 }
