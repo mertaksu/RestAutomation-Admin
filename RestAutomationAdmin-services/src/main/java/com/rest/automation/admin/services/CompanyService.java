@@ -5,6 +5,6 @@ import com.rest.automation.admin.dto.response.CompanyResponseDto;
 
 public interface CompanyService {
 
-	public CompanyResponseDto createCompany(CompanyDto company);
+	CompanyDto createCompany(CompanyDto company);
 }
 

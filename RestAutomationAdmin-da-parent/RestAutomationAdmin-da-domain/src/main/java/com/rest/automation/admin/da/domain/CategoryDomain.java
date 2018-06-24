@@ -1,6 +1,8 @@
 package com.rest.automation.admin.da.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -19,6 +21,8 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name="CATEGORY")
+@AllArgsConstructor
+@NoArgsConstructor
 public class CategoryDomain {
 
 	@Id

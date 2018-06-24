@@ -46,6 +46,10 @@ public class CategoryApiImpl implements CategoryApi{
         try {
             long startDate = System.currentTimeMillis();
             CategoryDomain domain = mapper.dtoToDomain(categoryDto);
+            if(domain.getCategoryId()==null) {
+                log.warn("CategoryId null. Category could not updated.");
+                return null;
+            }
             CategoryDomain savedCategory = categoryRepository.save(domain);
             response = mapper.domainToDto(savedCategory);
             log.info("Category updated with id {} in {} ms.",savedCategory.getCategoryId(),System.currentTimeMillis()-startDate);

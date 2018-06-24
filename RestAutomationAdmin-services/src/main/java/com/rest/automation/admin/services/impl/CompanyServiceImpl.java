@@ -14,7 +14,7 @@ public class CompanyServiceImpl implements CompanyService {
 	@Autowired
 	private CompanyApi companyApi;
 	
-	public CompanyResponseDto createCompany(CompanyDto company) {
+	public CompanyDto createCompany(CompanyDto company) {
 		return companyApi.save(company);
 	}
 

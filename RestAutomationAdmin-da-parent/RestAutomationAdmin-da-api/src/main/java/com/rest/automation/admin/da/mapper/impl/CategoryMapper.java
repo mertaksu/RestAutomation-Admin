@@ -11,6 +11,9 @@ public class CategoryMapper implements DomainDtoMapperInterface<CategoryDomain,C
     @Override
     public CategoryDomain dtoToDomain(CategoryDto categoryDto) {
         CategoryDomain domain = new CategoryDomain();
+        if(categoryDto.getCategoryId()!=null) {
+            domain.setCategoryId(categoryDto.getCategoryId());
+        }
         domain.setCategoryName(categoryDto.getCategoryName());
         domain.setImage(categoryDto.getImage());
         domain.setStatus(categoryDto.isStatus());
@@ -20,6 +23,7 @@ public class CategoryMapper implements DomainDtoMapperInterface<CategoryDomain,C
     @Override
     public CategoryDto domainToDto(CategoryDomain categoryDomain) {
         CategoryDto dto = new CategoryDto();
+        dto.setCategoryId(categoryDomain.getCategoryId());
         dto.setStatus(categoryDomain.isStatus());
         dto.setImage(categoryDomain.getImage());
         dto.setCategoryName(categoryDomain.getCategoryName());

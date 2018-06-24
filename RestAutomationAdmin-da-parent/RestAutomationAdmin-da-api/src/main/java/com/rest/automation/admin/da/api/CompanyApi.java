@@ -5,6 +5,6 @@ import com.rest.automation.admin.dto.response.CompanyResponseDto;
 
 public interface CompanyApi {
 
-    CompanyResponseDto save(CompanyDto companyDto);
+    CompanyDto save(CompanyDto companyDto);
 	
 }

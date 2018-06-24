@@ -27,24 +27,22 @@ public class CompanyApiImpl implements CompanyApi {
 	    this.companyMapper = companyMapper;
     }
 	
-	public CompanyResponseDto save(CompanyDto companyDto) {
-		CompanyResponseDto response = null;
+	public CompanyDto save(CompanyDto companyDto) {
+		CompanyDto response = null;
 		try {
-			response = new CompanyResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc);
 			CompanyDomain companyDomain = companyMapper.dtoToDomain(companyDto);
-			companyDomain = companyRepository.save(companyDomain);
+			CompanyDomain savedCompanyDomain = companyRepository.save(companyDomain);
 			if(companyDomain!=null) {
+			    response = companyMapper.domainToDto(savedCompanyDomain);
 				LOGGER.debug("Company saved with companyId : {}",companyDomain.getCompanyId());
 				return response;	
 			}
 			else {
 				LOGGER.warn("Company could not saved!");
-				response = new CompanyResponseDto(ResponseCodes.failCode, ResponseCodes.failDesc);
-				return response;	
+				return response;
 			}
 		} catch (Exception e) {
-			LOGGER.error("Exception occured while company saving ...",e );
-			response = new CompanyResponseDto(ResponseCodes.exceptionCode, ResponseCodes.exceptionDesc);
+			LOGGER.error("Exception occured while company saving ",e );
 			return response;
 		}
 	}

@@ -18,6 +18,7 @@ public class CompanyMapper implements DomainDtoMapperInterface<CompanyDomain, Co
 
 	public CompanyDto domainToDto(CompanyDomain domain) {
 		CompanyDto dto = new CompanyDto();
+		dto.setCompanyId(domain.getCompanyId());
 		dto.setAddress(domain.getAddress());
 		dto.setCompanyName(domain.getCompanyName());
 		return dto;
