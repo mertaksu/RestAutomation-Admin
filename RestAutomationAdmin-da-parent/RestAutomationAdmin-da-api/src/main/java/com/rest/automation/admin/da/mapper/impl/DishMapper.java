@@ -19,16 +19,16 @@ public class DishMapper implements DomainDtoMapperInterface<DishDomain,DishDto> 
         DishDomain dishDomain = new DishDomain();
         dishDomain.setAvgCookingTime(dishDto.getAvgCookingTime());
         dishDomain.setCalories(dishDto.getCalories());
-        dishDomain.setCategory(categoryMapper.dtoToDomain(dishDto.getCategory()));
         dishDomain.setDescription(dishDto.getDescription());
         dishDomain.setDiscount(dishDto.getDiscount());
-        if(dishDto.getDishId()!=null) {
-            dishDomain.setDishId(dishDto.getDishId());
-        }
+        dishDomain.setDishId(dishDto.getDishId());
         dishDomain.setDishName(dishDto.getDishName());
         dishDomain.setImage(dishDto.getImage());
         dishDomain.setPrice(dishDto.getPrice());
         dishDomain.setStatus(dishDto.isStatus());
+        if(dishDto.getCategoryDto()!=null) {
+            dishDomain.setCategoryDomain(categoryMapper.dtoToDomain(dishDto.getCategoryDto()));
+        }
         return dishDomain;
     }
 
@@ -37,7 +37,6 @@ public class DishMapper implements DomainDtoMapperInterface<DishDomain,DishDto> 
         DishDto dishDto = new DishDto();
         dishDto.setAvgCookingTime(dishDomain.getAvgCookingTime());
         dishDto.setCalories(dishDomain.getCalories());
-        dishDto.setCategory(categoryMapper.domainToDto(dishDomain.getCategory()));
         dishDto.setDescription(dishDomain.getDescription());
         dishDto.setDiscount(dishDomain.getDiscount());
         dishDto.setDishId(dishDomain.getDishId());
@@ -45,6 +44,7 @@ public class DishMapper implements DomainDtoMapperInterface<DishDomain,DishDto> 
         dishDto.setImage(dishDomain.getImage());
         dishDto.setPrice(dishDomain.getPrice());
         dishDto.setStatus(dishDomain.isStatus());
+        dishDto.setCategoryDto(categoryMapper.domainToDto(dishDomain.getCategoryDomain()));
         return dishDto;
     }
 }

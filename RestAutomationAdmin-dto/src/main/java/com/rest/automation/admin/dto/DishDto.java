@@ -29,5 +29,5 @@ public class DishDto {
 
     private boolean status;
 
-    private CategoryDto category;
+    private CategoryDto categoryDto;
 }

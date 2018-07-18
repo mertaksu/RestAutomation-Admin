@@ -40,10 +40,12 @@ public class OrderDomain {
 	private Double totalBill;
 	
 	@Column(name="STATUS")
-	private boolean status;
+	private Boolean status;
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="tableId")
 	private TableDomain table;
 
+	@OneToMany(orphanRemoval = true,mappedBy = "order")
+	private List<OrdersDishDomain> ordersDishDomains;
 }

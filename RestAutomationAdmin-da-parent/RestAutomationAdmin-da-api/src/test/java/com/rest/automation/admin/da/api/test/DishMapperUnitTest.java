@@ -22,7 +22,6 @@ public class DishMapperUnitTest {
         dishDomain.setDishName("Mercimek Çorbası");
         dishDomain.setDiscount(0);
         dishDomain.setDescription("Description");
-        dishDomain.setCategory(new CategoryDomain(1L, "Çorbalar", null, true));
         dishDomain.setCalories(80L);
         dishDomain.setAvgCookingTime(10);
 

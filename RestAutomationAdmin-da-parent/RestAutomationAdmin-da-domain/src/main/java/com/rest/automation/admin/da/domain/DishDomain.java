@@ -3,9 +3,9 @@ package com.rest.automation.admin.da.domain;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
-
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
-import java.util.Optional;
 
 @Getter
 @Setter
@@ -44,7 +44,7 @@ public class DishDomain {
     @Column(name="STATUS")
     private boolean status;
 
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="categoryId")
-    private CategoryDomain category;
+    @ManyToOne
+    @JoinColumn(name = "CAT_ID",nullable = false)
+    private CategoryDomain categoryDomain;
 }
