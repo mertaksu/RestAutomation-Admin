@@ -6,6 +6,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -47,4 +48,7 @@ public class DishDomain {
     @ManyToOne
     @JoinColumn(name = "CAT_ID",nullable = false)
     private CategoryDomain categoryDomain;
+
+    @OneToMany(orphanRemoval = true,mappedBy = "dish")
+    private List<OrdersDishDomain> ordersDishDomains;
 }
