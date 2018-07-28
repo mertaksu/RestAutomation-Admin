@@ -22,11 +22,14 @@ public class FoodController {
     }
 
     @RequestMapping(value = "/food",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public FoodResponseDto createNewFood(@RequestBody DishDto dishDto) {
+    public FoodResponseDto createNewFood(@RequestBody List<DishDto> dishDto) {
         long startDate = System.currentTimeMillis();
         FoodResponseDto response = new FoodResponseDto(ResponseCodes.successCode,ResponseCodes.successDesc);
         try {
-           DishDto savedDishDto = foodService.createFood(dishDto);
+            DishDto savedDishDto=null;
+            for (DishDto dishDto1:dishDto) {
+                savedDishDto = foodService.createFood(dishDto1);
+            }
            if(savedDishDto != null) {
                log.info("New Food created with FoodId {}. Delta {}",savedDishDto.getDishId(),System.currentTimeMillis() - startDate);
                response.setFood(savedDishDto);
